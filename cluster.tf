@@ -332,7 +332,7 @@ resource "google_container_node_pool" "pools" {
     for_each = lookup(each.value, "autoscaling", true) ? [each.value] : []
     content {
       min_node_count  = lookup(autoscaling.value, "min_count", 1)
-      max_node_count  = lookup(autoscaling.value, "max_count", 100)
+      max_node_count  = lookup(autoscaling.value, "max_count", 2)
       location_policy = lookup(autoscaling.value, "location_policy", null)
     }
   }
